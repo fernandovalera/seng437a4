@@ -45,6 +45,8 @@
 
 package org.jfree.data;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.general.DatasetUtilities;
 
 /**
@@ -117,7 +119,7 @@ public abstract class DataUtilities {
      */
     public static Number[] createNumberArray(double[] data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
         Number[] result = new Number[data.length];
         for (int i = 0; i < data.length; i++) {
@@ -138,7 +140,7 @@ public abstract class DataUtilities {
      */
     public static Number[][] createNumberArray2D(double[][] data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
         int l1 = data.length;
         Number[][] result = new Number[l1][];
