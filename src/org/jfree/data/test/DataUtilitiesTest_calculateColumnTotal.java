@@ -35,8 +35,11 @@ public class DataUtilitiesTest_calculateColumnTotal{
 		values = mockingContext.mock(Values2D.class);
 		mockingContext.checking(new Expectations(){ 
 			{
-				one(values).getRowCount(); 	//Checking one call of getRowCount() on values 
+				one(values).getRowCount(); 	//Checking one call of getRowCount() on values
 				will(returnValue(2));		//will return the value 2.
+
+				one(values).getColumnCount(); 	//Checking one call of getColumnCount() on values
+				will(returnValue(1));		//will return the value 1.
 					
 				one(values).getValue(0, 0);	//Checking one call of getValue() on values
 				will(returnValue(7.5));		//will return the value 7.5.
