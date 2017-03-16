@@ -66,7 +66,7 @@ public abstract class DataUtilities {
      */
     public static double calculateColumnTotal(Values2D data, int column) {
     	if (data==null) return 0.0;
-    	if (column > data.getColumnCount() || column < 0){
+    	if (column > (data.getColumnCount()-1) || column < 0){
     		return 0.0;
     	}
         double total = 0.0;
