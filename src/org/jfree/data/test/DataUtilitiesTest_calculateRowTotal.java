@@ -16,6 +16,7 @@ import org.junit.rules.ExpectedException;
 /**
  * 
  * Last edited by Fernando on 2017-02-15.
+ * Last edited by Soha on 2017-03-16.
  */
 public class DataUtilitiesTest_calculateRowTotal{
 	
@@ -36,8 +37,11 @@ public class DataUtilitiesTest_calculateRowTotal{
 		mockingContext.checking(new Expectations(){
 			{
 				one(values).getColumnCount(); 	
-				will(returnValue(2));		
-					
+				will(returnValue(2));
+				
+				one(values).getRowCount(); 	
+				will(returnValue(1));
+				
 				one(values).getValue(0, 0);	
 				will(returnValue(7.5));		
 				
