@@ -3,12 +3,15 @@ package org.jfree.data.junit;
 import static org.junit.Assert.*;
 
 import org.jfree.data.*;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import junit.framework.TestCase;
 
 public class DataUtilitiesTest
 {
+	@Before
 	public void setUp()
 	{
 		DefaultKeyedValues2D testValues = new DefaultKeyedValues2D();
@@ -18,6 +21,7 @@ public class DataUtilitiesTest
 		testValues.addValue(4, 1, 0);
 	}
 	
+	@After
 	public void tearDown()
 	{
 		values = null;
