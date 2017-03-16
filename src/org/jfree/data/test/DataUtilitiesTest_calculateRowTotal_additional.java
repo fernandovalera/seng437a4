@@ -38,6 +38,9 @@ public class DataUtilitiesTest_calculateRowTotal_additional {
                 one(values).getColumnCount();
                 will(returnValue(2));
 
+                one(values).getRowCount(); 	
+				will(returnValue(1));
+				
                 one(values).getValue(0, 0);
                 will(returnValue(null));
 
@@ -74,6 +77,9 @@ public class DataUtilitiesTest_calculateRowTotal_additional {
             {
                 one(values).getColumnCount();
                 will(returnValue(2));
+                
+                one(values).getRowCount(); 	
+				will(returnValue(1));
 
                 one(values).getValue(0, 0);
                 will(returnValue(2.5));
@@ -112,6 +118,9 @@ public class DataUtilitiesTest_calculateRowTotal_additional {
                 one(values).getColumnCount();
                 will(returnValue(2));
 
+                one(values).getRowCount(); 	
+				will(returnValue(1));
+				
                 one(values).getValue(0, 0);
                 will(returnValue(null));
 
