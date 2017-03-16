@@ -60,6 +60,7 @@
 package org.jfree.data;
 
 import java.io.Serializable;
+import java.security.InvalidParameterException;
 
 /**
  * Represents an immutable range of values.
@@ -149,11 +150,16 @@ public strictfp class Range implements Serializable {
      * @return <code>true</code> if the ranges intersect.
      */
     public boolean intersects(double lower, double upper) {
+    	if (lower > upper) {
+    		double lowerCopy = lower;
+    		lower = upper;
+    		upper = lowerCopy;
+    	}
         if (lower <= this.lower) {
             return (upper > this.lower);
         }
         else {
-            return (upper < this.upper && upper >= lower);
+            return (lower < this.upper);
         }
     }
 
@@ -297,6 +303,9 @@ public strictfp class Range implements Serializable {
      */
     public static Range shift(Range base, double delta, 
                               boolean allowZeroCrossing) {
+    	if (base==null)
+    		throw new InvalidParameterException("shift cannot take null Range object");
+    	
         if (allowZeroCrossing) {
             return new Range(base.getLowerBound() + delta, 
                     base.getUpperBound() + delta);
