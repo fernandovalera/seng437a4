@@ -32,6 +32,9 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
                 one(values).getRowCount(); 	// Checking one call of getRowCount() on values
                 will(returnValue(2));		// will return the value 2.
 
+                one(values).getColumnCount(); 	//Checking one call of getColumnCount() on values
+                will(returnValue(1));		//will return the value 1.
+
                 one(values).getValue(0, 0);	//Checking one call of getValue() on values
                 will(returnValue(null));		//will return the value null.
 
@@ -68,6 +71,9 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
                 one(values).getRowCount(); 	//Checking one call of getRowCount() on values
                 will(returnValue(2));		//will return the value 2.
 
+                one(values).getColumnCount(); 	//Checking one call of getColumnCount() on values
+                will(returnValue(1));		//will return the value 1.
+
                 one(values).getValue(0, 0);	//Checking one call of getValue() on values
                 will(returnValue(2.5));		//will return the value 7.5.
 
@@ -103,6 +109,9 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
             {
                 one(values).getRowCount(); 	//Checking one call of getRowCount() on values
                 will(returnValue(2));		//will return the value 2.
+
+                one(values).getColumnCount(); 	//Checking one call of getColumnCount() on values
+                will(returnValue(1));		//will return the value 1.
 
                 one(values).getValue(0, 0);	//Checking one call of getValue() on values
                 will(returnValue(null));		//will return the value null.
