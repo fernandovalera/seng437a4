@@ -67,7 +67,7 @@ public abstract class DataUtilities {
      * @return The sum of the values in the specified column.
      */
     public static double calculateColumnTotal(Values2D data, int column) {
-    	if (data==null) return 0.0;
+    	if (data==null) throw new InvalidParameterException();
     	if (column > (data.getColumnCount()-1) || column < 0){
     		return 0.0;
     	}
@@ -94,8 +94,10 @@ public abstract class DataUtilities {
      * @return The total of the values in the specified row.
      */
     public static double calculateRowTotal(Values2D data, int row) {
-    	if (data==null)
+    	if (data==null) throw new InvalidParameterException();
+    	if (row > (data.getRowCount()-1) || row < 0){
     		return 0.0;
+    	}
         double total = 0.0;
         int columnCount = data.getColumnCount();
         for (int c = 0; c < columnCount; c++) {
@@ -180,7 +182,7 @@ public abstract class DataUtilities {
      */
     public static KeyedValues getCumulativePercentages(KeyedValues data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException ("Null 'data' argument.");   
         }
         DefaultKeyedValues result = new DefaultKeyedValues();
         double total = 0.0;
@@ -196,9 +198,17 @@ public abstract class DataUtilities {
             if (v != null) {
                 runningTotal = runningTotal + v.doubleValue();
             }
-            result.addValue(data.getKey(i), new Double(runningTotal / total));
+            if(total != 0){
+            	result.addValue(data.getKey(i), new Double(runningTotal / total));
+            } else {
+            	result.addValue(data.getKey(i), new Double(0));
+            	break;
+            }
+            	
+            
         }
         return result;
     }
+    
 
 }

@@ -86,8 +86,7 @@ public class DataUtilitiesTest_calculateColumnTotal{
 	
 	@Test
 	public void test_calculateColumnTotal_nullData() {
+		exceptions.expect(InvalidParameterException.class);
 		double result = DataUtilities.calculateColumnTotal(null, 0);
-		assertEquals("The column total of null should be 0.0", 0.0, result, ERROR_MARGIN);
-
 	} 
 }

@@ -31,14 +31,14 @@ public class RangeTest_expandToInclude {
     public void test_expandToInclude_alreadyInRange() {
     	Range result = Range.expandToInclude(testRange, 4.0);
     	assertTrue("New Range contains previous Range", result.getUpperBound() >= 5.0);
-    	assertTrue("New Range contains previous Range", result.getUpperBound() <= 1.0);
+    	assertTrue("New Range contains previous Range", result.getLowerBound() <= 1.0);
     }
    
     @Test
     public void test_expandToInclude_nullRange() {
     	Range result = Range.expandToInclude(null, 4.0);
     	assertTrue("New Range contains previous Range", result.getUpperBound() >= 4.0);
-    	assertTrue("New Range contains previous Range", result.getUpperBound() <= 4.0);
+    	assertTrue("New Range contains previous Range", result.getLowerBound() <= 4.0);
     }
     
 

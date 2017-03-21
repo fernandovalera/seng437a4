@@ -152,7 +152,8 @@ public class DataUtilitiesTest_getCumulativePercentages {
     
     @Test
     public void test_getCumulativePercentages_oneKeyedValue_nullValue() {
-		// setup
+		//exceptions.expect(InvalidParameterException.class);
+    	// setup
 		Mockery mockingContext = new Mockery();
 
 		final int key0 = 0;

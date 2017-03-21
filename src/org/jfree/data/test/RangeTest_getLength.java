@@ -12,7 +12,7 @@ public class RangeTest_getLength {
 	@Test
     public void test_getlength_withPositiveValueBounds() {
     	testRange = new Range(1.0, 3.0);
-    	double actual = testRange.getCentralValue();
+    	double actual = testRange.getLength();
     	double expected = 2.0;
     	assertEquals("Length should be 2.0" ,expected, actual, ERROR_MARGIN);
     }
@@ -20,7 +20,7 @@ public class RangeTest_getLength {
 	@Test
     public void test_getlength_withPositiveAndNegativeValueBounds() {
     	testRange = new Range(-3.0, 3.0);
-    	double actual = testRange.getCentralValue();
+    	double actual = testRange.getLength();
     	double expected = 6.0;
     	assertEquals("Length should be 6.0" ,expected, actual, ERROR_MARGIN);
     }
@@ -28,7 +28,7 @@ public class RangeTest_getLength {
 	@Test
     public void test_getlength_withNegativeValueBounds() {
     	testRange = new Range(-3.0, -1.0);
-    	double actual = testRange.getCentralValue();
+    	double actual = testRange.getLength();
     	double expected = 2.0;
     	assertEquals("Length should be 6.0" ,expected, actual, ERROR_MARGIN);
     }
