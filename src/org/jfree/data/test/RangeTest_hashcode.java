@@ -14,7 +14,7 @@ public class RangeTest_hashcode {
 		
 		boolean result = range1.hashCode() == range2.hashCode();
 		boolean expected = true;
-		assertEquals("Both Ranges should be hased the same", expected, result);
+		assertEquals("Both Ranges should be hashed the same", expected, result);
 		
     }
 	
@@ -25,7 +25,18 @@ public class RangeTest_hashcode {
 		
 		boolean result = range1.hashCode() == range2.hashCode();
 		boolean expected = false;
-		assertEquals("Both Ranges should be not hased the same", expected, result);
+		assertEquals("Both Ranges should be not hashed the same", expected, result);
+		
+    }
+	
+	@Test
+    public void test_hashcode_barelyUnequalObjects() {
+		Range range1 = new Range(2, 5);
+		Range range2 = new Range(1.999, 5);
+		
+		boolean result = range1.hashCode() == range2.hashCode();
+		boolean expected = false;
+		assertEquals("Both Ranges should be not hashed the same", expected, result);
 		
     }
 }

@@ -107,6 +107,13 @@ public class RangeTest_shift {
 	}
 	//END New Test to achieve greater  Coverage
 	
+	@Test
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossingWithSlightlyPositiveBoundry() {
+		Range newExampleRange = new Range(0.1, 5);
+		Range shiftedRange = Range.shift(newExampleRange, 20, false);
+		Range expectedRange = new Range(20.1, 25);
+		assertEquals("Expected shift of 20 to yield shiftedRange of (20, 25)", expectedRange, shiftedRange);
+	}	
 	
 	@After
 	public void tearDown() throws Exception {

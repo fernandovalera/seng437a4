@@ -64,4 +64,32 @@ public class RangeTest_intersects {
     	boolean expected = true;
     	assertEquals("Intersects", expected, actual);
     }
+	
+	@Test
+	public void test_intersects_intersectsAtLeftBound() {
+    	boolean actual = testRange.intersects(-2.0, 1.0);
+    	boolean expected = true;
+    	assertEquals("Intersects", expected, actual);
+	}
+	
+	@Test
+	public void test_intersects_intersectsAtRightBound() {
+    	boolean actual = testRange.intersects(5.0, 6.0);
+    	boolean expected = true;
+    	assertEquals("Intersects", expected, actual);
+	}
+	
+	@Test
+	public void test_intersects_noIntersectsZeroRange() {
+    	boolean actual = testRange.intersects(0.0, 0.0);
+    	boolean expected = false;
+    	assertEquals("Does not intersect", expected, actual);
+	}
+	
+	@Test
+	public void test_intersects_intersectsInvalidRangeLowerToNominal() {
+    	boolean actual = testRange.intersects(4.0, 0.0);
+    	boolean expected = true;
+    	assertEquals("Does not intersect", expected, actual);
+	}
 }

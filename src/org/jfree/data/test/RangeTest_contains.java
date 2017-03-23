@@ -32,6 +32,16 @@ public class RangeTest_contains {
         assertEquals("4 is contained in 1.0 and 5.0", true, actual);
 
     }
+    @Test
+    public void test_contains_atLowerBound() {
+        boolean actual = testRange.contains(1.0);
+        assertEquals("1.0 is contained in the range (1.0, 5.0)", true, actual);
+    }
+    @Test
+    public void test_contains_atUpperBound() {
+        boolean actual = testRange.contains(5.0);
+        assertEquals("5.0 is contained in the range (1.0, 5.0)", true, actual);
+    }
     @After
     public void tearDown() throws Exception { }
     @AfterClass
