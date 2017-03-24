@@ -30,7 +30,6 @@ public class RangeTest_contains {
     public void test_contains_inBounds(){
         boolean actual = testRange.contains(4);
         assertEquals("4 is contained in 1.0 and 5.0", true, actual);
-
     }
     @Test
     public void test_contains_atLowerBound() {
