@@ -17,28 +17,28 @@ public class RangeTest_equals {
     public void test_equals_unequalUpperBound() {
         Range otherRange = new Range(1.0, 6.0);
         boolean actual = testRange.equals(otherRange);
-        assertEquals(false, actual);
+        assertEquals("Ranges have Unequal upper bound",false, actual);
     }
 	
 	@Test
     public void test_equals_unequalLowerBound() {
         Range otherRange = new Range(2.0, 5.0);
         boolean actual = testRange.equals(otherRange);
-        assertEquals(false, actual);
+        assertEquals("Ranges do not have equal bounds",false, actual);
     }
 	
 	@Test
     public void test_equals_equalBound() {
         Range otherRange = new Range(1.0, 5.0);
         boolean actual = testRange.equals(otherRange);
-        assertEquals(true, actual);
+        assertEquals("Both Ranges have equal bounds.",true, actual);
     }
 	
 	@Test
     public void test_equals_nullRange() {
         Range otherRange = null;
         boolean actual = testRange.equals(otherRange);
-        assertEquals(false, actual);
+        assertEquals("Comparing with a Null Range.",false, actual);
     }
 	
 	

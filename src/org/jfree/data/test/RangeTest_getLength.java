@@ -14,7 +14,7 @@ public class RangeTest_getLength {
     	testRange = new Range(1.0, 3.0);
     	double actual = testRange.getLength();
     	double expected = 2.0;
-    	assertEquals("Length should be 2.0" ,expected, actual, ERROR_MARGIN);
+    	assertEquals("Length of Range in Positive Range." ,expected, actual, ERROR_MARGIN);
     }
 	
 	@Test
@@ -22,7 +22,7 @@ public class RangeTest_getLength {
     	testRange = new Range(-3.0, 3.0);
     	double actual = testRange.getLength();
     	double expected = 6.0;
-    	assertEquals("Length should be 6.0" ,expected, actual, ERROR_MARGIN);
+    	assertEquals("Length of range over both positive and negative range." ,expected, actual, ERROR_MARGIN);
     }
 	
 	@Test
@@ -30,7 +30,7 @@ public class RangeTest_getLength {
     	testRange = new Range(-3.0, -1.0);
     	double actual = testRange.getLength();
     	double expected = 2.0;
-    	assertEquals("Length should be 6.0" ,expected, actual, ERROR_MARGIN);
+    	assertEquals("Length of rage with only negative range." ,expected, actual, ERROR_MARGIN);
     }
 
 }

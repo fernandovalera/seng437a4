@@ -48,42 +48,42 @@ public class RangeTest_intersects {
     public void test_intersects_intersectsLeftBound() {
     	boolean actual = testRange.intersects(-2.0, 3.0);
     	boolean expected = true;
-    	assertEquals("Intersects", expected, actual);
+    	assertEquals("Intersecting ranges", expected, actual);
     }
 	
 	@Test
     public void test_intersects_InvalidRange() {
     	boolean actual = testRange.intersects(5.0, 4.0);
     	boolean expected = true;
-    	assertEquals("Intersects but Invalid Range", expected, actual);
+    	assertEquals("range with invaled bounds", expected, actual);
     }
 	
 	@Test
     public void test_intersects_equalBounds() {
     	boolean actual = testRange.intersects(1.0, 5.0);
     	boolean expected = true;
-    	assertEquals("Intersects", expected, actual);
+    	assertEquals("Ranges with equal bounds", expected, actual);
     }
 	
 	@Test
 	public void test_intersects_intersectsAtLeftBound() {
     	boolean actual = testRange.intersects(-2.0, 1.0);
     	boolean expected = true;
-    	assertEquals("Intersects", expected, actual);
+    	assertEquals("Ranges with intersecting left bound", expected, actual);
 	}
 	
 	@Test
 	public void test_intersects_intersectsAtRightBound() {
     	boolean actual = testRange.intersects(5.0, 6.0);
     	boolean expected = true;
-    	assertEquals("Intersects", expected, actual);
+    	assertEquals("Ranges with intersecting right bound", expected, actual);
 	}
 	
 	@Test
 	public void test_intersects_noIntersectsZeroRange() {
     	boolean actual = testRange.intersects(0.0, 0.0);
     	boolean expected = false;
-    	assertEquals("Does not intersect", expected, actual);
+    	assertEquals("intersection with Range with 0 length", expected, actual);
 	}
 	
 	@Test
