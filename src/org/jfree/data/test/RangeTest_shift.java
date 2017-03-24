@@ -99,21 +99,55 @@ public class RangeTest_shift {
 	}
 	
 	@Test
-	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossingWithZeroBoundry() {
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_LowerAtZero() {
 		Range newExampleRange = new Range(0, 5);
-		Range shiftedRange = Range.shift(newExampleRange, 20, false);
-		Range expectedRange = new Range(20, 25);
-		assertEquals("Expected shift of 20 to yield shiftedRange of (20, 25)", expectedRange, shiftedRange);
+		Range shiftedRange = Range.shift(newExampleRange, -20, false);
+		Range expectedRange = new Range(-20, 0);
+		assertEquals("Shifting range left, upper crosses zero", expectedRange, shiftedRange);
 	}
 	//END New Test to achieve greater  Coverage
+	//New MUTATION coverage test cases
+	@Test
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_LowerAboveZero() {
+		Range newExampleRange = new Range(1, 5);
+		Range shiftedRange = Range.shift(newExampleRange, -20, false);
+		Range expectedRange = new Range(0, 0);
+		assertEquals("Shifting range left, lower and upper crosses zero", expectedRange, shiftedRange);
+	}	
 	
 	@Test
-	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossingWithSlightlyPositiveBoundry() {
-		Range newExampleRange = new Range(0.1, 5);
-		Range shiftedRange = Range.shift(newExampleRange, 20, false);
-		Range expectedRange = new Range(20.1, 25);
-		assertEquals("Expected shift of 20 to yield shiftedRange of (20, 25)", expectedRange, shiftedRange);
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_LowerBelowZero() {
+		Range newExampleRange = new Range(-1, 5);
+		Range shiftedRange = Range.shift(newExampleRange, -20, false);
+		Range expectedRange = new Range(-21, 0);
+		assertEquals("Shifting range left, lower below zero, upper crosses zero", expectedRange, shiftedRange);
 	}	
+	
+	@Test
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_UpperAtZero() {
+		Range newExampleRange = new Range(-5, 0);
+		Range shiftedRange = Range.shift(newExampleRange, 20, false);
+		Range expectedRange = new Range(0, 20);
+		assertEquals("Shifting range range, lower crosses zero, upper at zero", expectedRange, shiftedRange);
+	}
+	
+	@Test
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_UpperAboveZero() {
+		Range newExampleRange = new Range(-5, 1);
+		Range shiftedRange = Range.shift(newExampleRange, 20, false);
+		Range expectedRange = new Range(0, 21);
+		assertEquals("Shifting range left, lower crosses zero, upper above zero", expectedRange, shiftedRange);
+	}	
+	
+	@Test
+	public void test_shift_shiftPastZeroCrossingWithFalseAllowZeroCrossing_UpperBelowZero() {
+		Range newExampleRange = new Range(-5, -1);
+		Range shiftedRange = Range.shift(newExampleRange, 20, false);
+		Range expectedRange = new Range(0, 0);
+		assertEquals("Shifting range left, lower and upper crosses zero", expectedRange, shiftedRange);
+	}	
+	//END MUTATION coverage test cases
+	
 	
 	@After
 	public void tearDown() throws Exception {
